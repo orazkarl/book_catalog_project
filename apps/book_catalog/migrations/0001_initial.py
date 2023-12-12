@@ -15,87 +15,87 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name="Author",
+            name='Author',
             fields=[
                 (
-                    "id",
+                    'id',
                     models.BigAutoField(
                         auto_created=True,
                         primary_key=True,
                         serialize=False,
-                        verbose_name="ID",
+                        verbose_name='ID',
                     ),
                 ),
-                ("name", models.CharField(max_length=255)),
+                ('name', models.CharField(max_length=255)),
             ],
         ),
         migrations.CreateModel(
-            name="Genre",
+            name='Genre',
             fields=[
                 (
-                    "id",
+                    'id',
                     models.BigAutoField(
                         auto_created=True,
                         primary_key=True,
                         serialize=False,
-                        verbose_name="ID",
+                        verbose_name='ID',
                     ),
                 ),
-                ("name", models.CharField(max_length=255)),
+                ('name', models.CharField(max_length=255)),
             ],
         ),
         migrations.CreateModel(
-            name="Book",
+            name='Book',
             fields=[
                 (
-                    "id",
+                    'id',
                     models.BigAutoField(
                         auto_created=True,
                         primary_key=True,
                         serialize=False,
-                        verbose_name="ID",
+                        verbose_name='ID',
                     ),
                 ),
-                ("title", models.CharField(max_length=255)),
-                ("publication_date", models.DateField()),
-                ("description", models.TextField()),
+                ('title', models.CharField(max_length=255)),
+                ('publication_date', models.DateField()),
+                ('description', models.TextField()),
                 (
-                    "author",
+                    'author',
                     models.ForeignKey(
                         on_delete=django.db.models.deletion.CASCADE,
-                        to="book_catalog.author",
+                        to='book_catalog.author',
                     ),
                 ),
                 (
-                    "genre",
+                    'genre',
                     models.ForeignKey(
                         on_delete=django.db.models.deletion.CASCADE,
-                        to="book_catalog.genre",
+                        to='book_catalog.genre',
                     ),
                 ),
             ],
         ),
         migrations.CreateModel(
-            name="FavoriteBook",
+            name='FavoriteBook',
             fields=[
                 (
-                    "id",
+                    'id',
                     models.BigAutoField(
                         auto_created=True,
                         primary_key=True,
                         serialize=False,
-                        verbose_name="ID",
+                        verbose_name='ID',
                     ),
                 ),
                 (
-                    "book",
+                    'book',
                     models.ForeignKey(
                         on_delete=django.db.models.deletion.CASCADE,
-                        to="book_catalog.book",
+                        to='book_catalog.book',
                     ),
                 ),
                 (
-                    "user",
+                    'user',
                     models.ForeignKey(
                         on_delete=django.db.models.deletion.CASCADE,
                         to=settings.AUTH_USER_MODEL,
@@ -104,28 +104,28 @@ class Migration(migrations.Migration):
             ],
         ),
         migrations.CreateModel(
-            name="Review",
+            name='Review',
             fields=[
                 (
-                    "id",
+                    'id',
                     models.BigAutoField(
                         auto_created=True,
                         primary_key=True,
                         serialize=False,
-                        verbose_name="ID",
+                        verbose_name='ID',
                     ),
                 ),
-                ("rating", models.IntegerField()),
-                ("text", models.TextField()),
+                ('rating', models.IntegerField()),
+                ('text', models.TextField()),
                 (
-                    "book",
+                    'book',
                     models.ForeignKey(
                         on_delete=django.db.models.deletion.CASCADE,
-                        to="book_catalog.book",
+                        to='book_catalog.book',
                     ),
                 ),
                 (
-                    "user",
+                    'user',
                     models.ForeignKey(
                         on_delete=django.db.models.deletion.CASCADE,
                         to=settings.AUTH_USER_MODEL,
